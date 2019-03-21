@@ -1,0 +1,220 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/Content/Site/images/icons/favicon.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/fonts//font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/fonts//themify/themify-icons.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/fonts//Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/fonts//elegant-font/html-css/style.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/vendor/lightbox2/css/lightbox.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/Site/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Site/css/main.css">
+    <!--===============================================================================================-->
+
+
+</head>
+<body class="animsition">
+
+    <!-- Header -->
+    <header class="header1">
+        <!-- Header desktop -->
+        <div class="container-menu-header">
+            <div class="topbar">
+                <div class="topbar-social">
+                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
+                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                    <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                </div>
+
+                @*<span class="topbar-child1">
+                        Free shipping for standard order over $100
+                    </span>*@
+
+                <div class="topbar-child2">
+                    <span class="topbar-email">
+                        info@lenedimo.com
+                    </span>
+
+                    @*<div class="topbar-language rs1-select2">
+                            <select class="selection-1" name="time">
+                                <option>USD</option>
+                                <option>EUR</option>
+                            </select>
+                        </div>*@
+                </div>
+            </div>
+
+            <div class="wrap_header">
+                <!-- Logo -->
+                <a href="/Home/Index" class="logo">
+                    <h5>Le Nedi<span style="color:red;">mo</span></h5>
+                    @*<img src="/Content/Site/images/icons/logo.png" alt="IMG-LOGO">*@
+                </a>
+
+                <!-- Menu -->
+                @Html.Action("_Menu", "Home", new { area = "" })
+
+                <!-- Header Icon -->
+                <div class="header-icons">
+                    <div class="col-md-5">
+                        <div class="col-md-6">
+                            <h5 style="color:black; font-size:smaller;">@Session["NameSurname"]</h5>
+                            <p style="font-size:smaller;">@Session["Email"]</p>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-3 img">
+                        @if (Session["NameSurname"] == null)
+                        {
+                            <a href="/Customer" class="header-wrapicon1 dis-block">
+                                <img src="/Content/Site/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/Customer/Logout" font-size:smaller;">Çıkış</a>
+                        }
+                    </div>
+
+                    <span class="linedivide1"></span>
+
+                    <div class="header-wrapicon2">
+
+                        <!-- Header cart noti -->
+                        @Html.Action("_MinCart", "Home", new { area = "" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Slide1 -->
+
+
+
+    @RenderBody()
+
+
+    @*@Html.Action("_Slider", "Home", new { area = "" })*@
+    <!-- Footer -->
+    @Html.Action("_Footer", "Home", new { area = "" })
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <!-- Container Selection1 -->
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/animsition/js/animsition.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="/Content/Site/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/select2/select2.min.js"></script>
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/slick/slick.min.js"></script>
+    <script type="text/javascript" src="/Content/Site/js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/lightbox2/js/lightbox.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="/Content/Site/vendor/sweetalert/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        $("#cart").on('click', function () {
+            var id = $(this).attr("rel");
+            var urunAdet = $('#quantity').val();
+            var size = $('#size').val();
+            var color = $('#color').val();
+            $.ajax({
+                url: "/Cart/AddToCart?id=" + id + "&count=" + urunAdet + "&size=" + size + '&color=' + color,
+                method: "POST",
+                success: function (data) {
+                    if (data) {
+                        var nameProduct = $('#pName').html();
+                        swal(nameProduct, "Ürün sepete eklendi !", "success");
+                    }
+
+                }
+            });
+
+        });
+
+        $('#quantity').on("keyup", function () {
+            var value = $('#quantity').val();
+            $("#cart").removeAttr("urunAdet");
+            $("#cart").attr("urunAdet", value);
+        });
+
+        $('.block2-btn-addcart').each(function () {
+            var nameProduct = $('#pName').html();
+            $(this).on('click', function () {
+                var id = $("#cart").attr("rel");
+                $.ajax({
+                    url: "/Cart/AddToCart?id=" + id + "&count=1&size=0",
+                    method: "POST"
+                })
+                swal(nameProduct, "Ürün sepete eklendi !", "success");
+            });
+        });
+
+        $('.block2-btn-addwishlist').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "favorilere eklendi !", "success");
+            });
+        });
+    </script>
+
+    <!--===============================================================================================-->
+
+    <script src="/Content/Site/js/main.js"></script>
+</body>
+</html>

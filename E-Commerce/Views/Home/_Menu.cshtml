@@ -1,0 +1,45 @@
+﻿@using E_Commerce.Models
+@{ 
+    Layout = null;
+}
+<div class="wrap_menu">
+    <nav class="menu">
+        <ul class="main_menu">
+            <li>
+                <a href="/">Anasayfa</a>
+               
+            </li>
+
+            <li>
+                <a href="/product/index">Kategoriler</a>
+                <ul class="sub_menu">
+                    @foreach (Category item in ViewBag.Categories )
+                    {
+                        <li>
+                            <a href="/product/index/?id=@item.Id">@item.Name</a>
+                            <ul class="sub-menu menu">
+                                @foreach (var item2 in item.ChildCategory)
+                                {
+                                    <li><a href="/product/index/?id=@item2.Id">@item2.Name</a></li>
+                                }
+                            </ul>
+                        </li>
+
+                    }
+                </ul>
+            </li>
+
+            <li class="sale-noti">
+                <a href="/Product/">Tüm Ürünler</a>
+            </li>
+           
+            <li>
+                <a href="/Home/about">Hakkımızda</a>
+            </li>
+
+            <li>
+                <a href="/Home/contact">İletişim</a>
+            </li>
+        </ul>
+    </nav>
+</div>

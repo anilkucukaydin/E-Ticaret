@@ -1,0 +1,50 @@
+﻿@using E_Commerce.Models
+@model List<Product>
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+<a href="/Panel/Products/Create" class="btn btn-primary">Add New Product</a>
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Name</th>
+                <th>
+                    <a href="/Panel/Products/Edit/@item.Id" class="btn btn-warning">Düzenle</a>
+                    <span class="btn btn-danger del" rel="@item.Id" >Sil</span>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $(".del").click(function () {
+            var btn = $(this);
+            var id = btn.attr("rel");
+            $.ajax({
+                url: "/Panel/Products/Delete/" + id,
+                method: "POST",
+                success: function (IsDeleted) {
+                    if (IsDeleted)
+                        btn.parent().parent().slideUp("slow");
+                    else
+                        alert("An error has occured.");
+                }
+            });
+        });
+    });
+</script>
+
